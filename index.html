@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junk Feed — You Are What Your Feed</title>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div class="page page--padded">
+      <div class="page__inner">
+        <header class="site-header">
+          <a href="index.html" class="site-header__logo" aria-label="Junk Feed home">
+            <img src="images/logo_nav.svg" alt="Junk Feed" width="62" height="48" />
+          </a>
+          <button
+            type="button"
+            class="site-header__menu-toggle"
+            aria-expanded="false"
+            aria-controls="site-header-nav"
+            aria-label="Open menu"
+          >
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+          </button>
+          <button
+            type="button"
+            class="site-header__backdrop"
+            aria-label="Close menu"
+            tabindex="-1"
+            hidden
+          ></button>
+          <nav id="site-header-nav" class="site-header__nav" aria-label="Main navigation">
+            <a href="#techniques" class="site-header__link" data-motion="magnetic">Learn</a>
+            <a href="quiz.html" class="btn btn--nav">Test your Feed</a>
+          </nav>
+        </header>
+      </div>
+
+      <div class="hero-block-wrap">
+        <section class="hero-block" aria-label="Hero">
+          <div class="hero-block__bg" aria-hidden="true"></div>
+          <img class="hero-block__grid" src="images/hero-grid.png" alt="" aria-hidden="true" />
+          <div class="hero-block__content">
+            <h1 class="type-sink-hero hero-block__title">
+              You are
+              <span class="hero-block__title-line hero-block__title-line--indent">what your</span>
+            </h1>
+            <img
+              class="hero-block__sticker"
+              src="images/sticker-hero.svg"
+              alt="Read beyond the headline"
+              width="243"
+              height="243"
+            />
+            <div class="hero-block__row">
+              <p class="hero-block__tagline type-freight-body">
+                Every scroll feeds the algorithm.<br />
+                Every like is a vote.<br />
+                Find out what your feed says about you.
+              </p>
+              <p class="hero-block__feed type-sink-hero">Feed</p>
+            </div>
+          </div>
+          <a href="#techniques" class="scroll-btn" aria-label="Scroll to techniques">
+            <img src="images/icon-arrow.svg" alt="" width="28" height="17" />
+          </a>
+        </section>
+      </div>
+
+      <section id="techniques" class="techniques section" aria-labelledby="techniques-heading">
+        <h2 id="techniques-heading" class="techniques__title type-sink-title">
+          Common Manipulation Techniques:
+        </h2>
+        <div class="techniques__grid techniques__grid--home">
+          <div class="techniques__row techniques__row--home-first">
+            <article
+              class="technique-card technique-card--home technique-card--home-1 technique-card--red technique-card--w428"
+            >
+            <img
+              class="technique-badge technique-badge--red-herring"
+              src="images/red-herring-sticker.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <h3 class="type-frequenz-card">Red Herring</h3>
+            <p class="type-freight-body">
+              Pulling attention away from the real issue by introducing something that feels
+              relevant but actually has nothing to do with the original point.
+            </p>
+            </article>
+            <article
+              class="technique-card technique-card--home technique-card--home-2 technique-card--blue technique-card--w423"
+            >
+            <img
+              class="technique-badge technique-badge--emotional"
+              src="images/emotional-language-sticker.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <h3 class="type-frequenz-card">Emotional Language</h3>
+            <p class="type-freight-body">
+              Words and phrases chosen to trigger strong negative feelings like fear, anger, or
+              panic in the audience.
+            </p>
+            </article>
+            <article
+              class="technique-card technique-card--home technique-card--home-3 technique-card--yellow technique-card--w421"
+            >
+            <img
+              class="technique-badge technique-badge--cherry"
+              src="images/cherry-picking-sticker.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <h3 class="type-frequenz-card">Cherry Picking</h3>
+            <p class="type-freight-body">
+              Selecting only the evidence that supports one side of an argument while quietly
+              leaving out anything that tells a different story.
+            </p>
+            </article>
+          </div>
+          <div class="techniques__row techniques__row--home-second">
+            <article
+              class="technique-card technique-card--home technique-card--home-4 technique-card--yellow technique-card--w421"
+            >
+            <img
+              class="technique-badge technique-badge--misrep"
+              src="images/misrepresentation-sticker.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <h3 class="type-frequenz-card">Misrepresentation</h3>
+            <p class="type-freight-body">
+              Taking real text, images, or video and placing them in a different situation or
+              stripping away key background information to change what they actually mean.
+            </p>
+            </article>
+            <article
+              class="technique-card technique-card--home technique-card--home-5 technique-card--red technique-card--w428"
+            >
+            <img
+              class="technique-badge technique-badge--slippery"
+              src="images/slippery-slope-sticker.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <h3 class="type-frequenz-card">Slippery Slope</h3>
+            <p class="type-freight-body">
+              Claiming that one small action will automatically trigger a chain of increasingly
+              serious consequences, usually without any evidence to back it up.
+            </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq faq--full-bleed section" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" class="faq__title type-sink-title">Common Questions:</h2>
+        <div class="faq__grid">
+          <div class="faq-item">
+            <button class="faq-item__trigger" type="button" aria-expanded="false">
+              <span class="faq-item__question">What is disinformation?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <img src="images/arrow-accordion.svg" alt="" width="24" height="24" />
+              </span>
+            </button>
+            <div class="faq-item__panel" aria-hidden="true">
+              <div class="faq-item__answer">
+                <p>
+                  Disinformation is false or misleading information that is deliberately created and
+                  spread to deceive people. Unlike accidental misinformation, disinformation is
+                  intentional. It is designed to trigger emotional reactions like fear or outrage,
+                  making it more likely to be believed and shared before anyone stops to question it.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" type="button" aria-expanded="false">
+              <span class="faq-item__question">How to spot it?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <img src="images/arrow-accordion.svg" alt="" width="24" height="24" />
+              </span>
+            </button>
+            <div class="faq-item__panel" aria-hidden="true">
+              <div class="faq-item__answer">
+                <p>
+                  Ask yourself a few simple questions before engaging with any content. Does it make
+                  you feel fear, anger, or panic? Does it claim something dramatic that no major news
+                  outlet is reporting? Does it use vague sources or no sources at all?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" type="button" aria-expanded="false">
+              <span class="faq-item__question">Why it spreads?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <img src="images/arrow-accordion.svg" alt="" width="24" height="24" />
+              </span>
+            </button>
+            <div class="faq-item__panel" aria-hidden="true">
+              <div class="faq-item__answer">
+                <p>
+                  Short-form video platforms like TikTok and Instagram use algorithms that
+                  prioritise content based on engagement. Every time you watch, rewatch, like, or
+                  comment on a video, even a misleading one, the algorithm reads it as a signal of
+                  interest and shows it to more people.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-item__trigger" type="button" aria-expanded="false">
+              <span class="faq-item__question">What you can do?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <img src="images/arrow-accordion.svg" alt="" width="24" height="24" />
+              </span>
+            </button>
+            <div class="faq-item__panel" aria-hidden="true">
+              <div class="faq-item__answer">
+                <p>
+                  You have more power over your feed than you think. Use the Not Interested feature
+                  to tell the algorithm what you do not want to see. Report content that feels
+                  misleading or harmful.
+                </p>
+                <p>
+                  Check the source before sharing anything that triggers a strong emotional reaction.
+                  Small actions add up. Every time you refuse to engage with junk, you starve the
+                  algorithm of the signal it needs to spread it further.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band section" aria-labelledby="cta-heading">
+        <div class="cta-card">
+          <h2 id="cta-heading" class="cta-card__title type-sink-title">
+            Can you spot<br />the manipulation TECHNIQUES?
+          </h2>
+          <a href="quiz.html" class="btn btn--cta">Test your Feed</a>
+        </div>
+      </section>
+
+      <footer class="site-footer section">
+        <div class="site-footer__top">
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="#techniques" class="site-footer__link">Learn</a>
+            <a href="quiz.html" class="btn btn--cta">Test your Feed</a>
+          </nav>
+          <div class="site-footer__socials">
+            <a href="#" class="site-footer__social site-footer__social--tiktok" aria-label="TikTok">
+              <img src="images/tiktok-icon.svg" alt="" width="24" height="24" />
+            </a>
+            <a
+              href="https://www.instagram.com/junk.feed.awareness?igsh=ZHQyY3dncTY5anR4"
+              class="site-footer__social site-footer__social--instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <img src="images/instagram-icon.svg" alt="" width="24" height="24" />
+            </a>
+          </div>
+        </div>
+        <div class="site-footer__logo">
+          <img src="images/logo_footer.svg" alt="Junk Feed" width="80" height="63" />
+        </div>
+      </footer>
+    </div>
+    <script src="js/nav.js" defer></script>
+    <script src="js/learn.js" defer></script>
+    <script src="js/motion.js" defer></script>
+  </body>
+</html>

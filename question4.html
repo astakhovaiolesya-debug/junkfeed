@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junk Feed — Question 4</title>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body class="page-quiz" data-question="4" data-next="question5.html">
+    <div class="page page--padded">
+      <div class="page__inner">
+        <header class="site-header">
+          <a href="index.html" class="site-header__logo" aria-label="Junk Feed home">
+            <img src="images/logo_nav.svg" alt="Junk Feed" width="62" height="48" />
+          </a>
+          <button
+            type="button"
+            class="site-header__menu-toggle"
+            aria-expanded="false"
+            aria-controls="site-header-nav"
+            aria-label="Open menu"
+          >
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+          </button>
+          <button
+            type="button"
+            class="site-header__backdrop"
+            aria-label="Close menu"
+            tabindex="-1"
+            hidden
+          ></button>
+          <nav id="site-header-nav" class="site-header__nav" aria-label="Main navigation">
+            <a href="index.html#techniques" class="site-header__link">Learn</a>
+            <a href="quiz.html" class="btn btn--nav">Test your Feed</a>
+          </nav>
+        </header>
+      </div>
+
+      <div class="page__inner">
+        <section class="quiz-screen" aria-label="Question 4">
+          <div class="hero-block__bg" aria-hidden="true"></div>
+          <img class="hero-block__grid" src="images/hero-grid.png" alt="" aria-hidden="true" />
+          <div class="quiz-screen__inner">
+            <div class="quiz-screen__body">
+              <div class="quiz-screen__intro">
+              <p class="quiz-progress">4/5</p>
+              <p class="type-frequenz-quiz-prompt">What type of disinformation is this?</p>
+              <div class="quiz-quote-wrap">
+                <p class="quiz-quote type-sink-quiz-quote">“The report says online engagement increased this year, but the post claims it proves social media is completely destroying society.”</p>
+              </div>
+            </div>
+            <div id="quiz-answers" class="quiz-answers">
+              <div class="quiz-answers__col">
+                <button type="button" class="quiz-answer-btn" data-label="Emotional Language" data-correct="false">Emotional Language</button>
+                <button type="button" class="quiz-answer-btn" data-label="Red Herring" data-correct="false">Red Herring</button>
+              </div>
+              <div class="quiz-answers__col">
+                <button type="button" class="quiz-answer-btn" data-label="Misrepresentation" data-correct="true">Misrepresentation</button>
+                <button type="button" class="quiz-answer-btn" data-label="Slippery Slope" data-correct="false">Slippery Slope</button>
+              </div>
+            </div>
+            </div>
+            <button type="button" id="quiz-next" class="btn btn--cta quiz-next-btn" hidden>Next</button>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="js/nav.js" defer></script>
+    <script src="js/motion.js" defer></script>
+    <script src="js/quiz-storage.js"></script>
+    <script src="js/quiz-question.js"></script>
+  </body>
+</html>

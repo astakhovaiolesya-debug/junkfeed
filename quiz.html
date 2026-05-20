@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junk Feed — Quiz</title>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body class="page-quiz">
+    <div class="page page--padded">
+      <div class="page__inner">
+        <header class="site-header">
+          <a href="index.html" class="site-header__logo" aria-label="Junk Feed home">
+            <img src="images/logo_nav.svg" alt="Junk Feed" width="62" height="48" />
+          </a>
+          <button
+            type="button"
+            class="site-header__menu-toggle"
+            aria-expanded="false"
+            aria-controls="site-header-nav"
+            aria-label="Open menu"
+          >
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+            <span class="site-header__menu-bar" aria-hidden="true"></span>
+          </button>
+          <button
+            type="button"
+            class="site-header__backdrop"
+            aria-label="Close menu"
+            tabindex="-1"
+            hidden
+          ></button>
+          <nav id="site-header-nav" class="site-header__nav" aria-label="Main navigation">
+            <a href="index.html#techniques" class="site-header__link">Learn</a>
+            <span class="btn btn--nav" aria-current="page">Test your Feed</span>
+          </nav>
+        </header>
+      </div>
+
+      <div class="page__inner">
+        <section class="quiz-screen quiz-screen--landing" aria-label="Quiz start">
+          <div class="hero-block__bg" aria-hidden="true"></div>
+          <img class="hero-block__grid" src="images/hero-grid.png" alt="" aria-hidden="true" />
+          <div class="quiz-screen__inner">
+            <h1 class="cta-card__title type-sink-title">
+              Can you spot<br />the manipulation TECHNIQUES?
+            </h1>
+            <a href="question1.html" class="btn btn--cta" id="quiz-start">Start</a>
+          </div>
+        </section>
+      </div>
+
+      <footer class="site-footer section">
+        <div class="site-footer__top">
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="index.html#techniques" class="site-footer__link">Learn</a>
+            <a href="quiz.html" class="btn btn--cta">Test your Feed</a>
+          </nav>
+          <div class="site-footer__socials">
+            <a href="#" class="site-footer__social site-footer__social--tiktok" aria-label="TikTok">
+              <img src="images/tiktok-icon.svg" alt="" width="24" height="24" />
+            </a>
+            <a
+              href="https://www.instagram.com/junk.feed.awareness?igsh=ZHQyY3dncTY5anR4"
+              class="site-footer__social site-footer__social--instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <img src="images/instagram-icon.svg" alt="" width="24" height="24" />
+            </a>
+          </div>
+        </div>
+        <div class="site-footer__logo">
+          <img src="images/logo_footer.svg" alt="Junk Feed" width="80" height="63" />
+        </div>
+      </footer>
+    </div>
+    <script src="js/nav.js" defer></script>
+    <script src="js/quiz-storage.js"></script>
+    <script>
+      document.getElementById("quiz-start").addEventListener("click", function () {
+        JunkFeedStorage.reset();
+      });
+    </script>
+      <script src="js/motion.js" defer></script>
+  </body>
+</html>

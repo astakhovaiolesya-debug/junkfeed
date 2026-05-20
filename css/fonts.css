@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Sink";
+  src: url("../fonts/Sink-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frequenz Trial";
+  src: url("../fonts/FrequenzTrial-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Frequenz Trial";
+  src: url("../fonts/FrequenzTrial-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FreightMacro Pro";
+  src: local("FreightMacro Pro Light"), local("Freight Macro Pro Light");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
