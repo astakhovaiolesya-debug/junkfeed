@@ -18,8 +18,9 @@
   --content-width: 1312px;
   --layout-max: 1520px;
   --content-max: 1400px;
-  --techniques-max: 1600px;
-  --faq-max: 1280px;
+  --shell-max: 1400px;
+  --techniques-max: 1400px;
+  --faq-max: 1400px;
   --quiz-max: 960px;
   --read-measure: 65ch;
   --section-gap: 80px;
@@ -219,24 +220,35 @@ button {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   min-height: 360px;
-  padding: 64px max(60px, calc((100vw - var(--content-width)) / 2)) 21px;
+  padding: 64px max(24px, calc((100vw - min(var(--shell-max), 92vw)) / 2)) 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+}
+
+.site-footer.section {
+  max-width: none;
 }
 
 .site-footer__top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: var(--content-width);
+  max-width: min(var(--shell-max), 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .site-footer__logo {
   width: 100%;
-  max-width: var(--content-width);
+  max-width: min(var(--shell-max), 100%);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .site-footer__nav {
@@ -421,8 +433,8 @@ button {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding-left: max(64px, calc((100vw - var(--content-width)) / 2));
-  padding-right: max(64px, calc((100vw - var(--content-width)) / 2));
+  padding-left: max(24px, calc((100vw - min(var(--shell-max), 92vw)) / 2));
+  padding-right: max(24px, calc((100vw - min(var(--shell-max), 92vw)) / 2));
   padding-bottom: var(--hero-bottom-gap);
   box-sizing: border-box;
   min-height: calc(100svh - var(--site-header-height));
@@ -434,7 +446,7 @@ button {
 
 .hero-block {
   width: 100%;
-  max-width: var(--content-width);
+  max-width: min(var(--shell-max), 100%);
   flex: 1;
   min-height: calc(
     100svh - var(--site-header-height) - var(--hero-bottom-gap) - 60px
@@ -558,7 +570,7 @@ button {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 80px max(64px, calc((100vw - var(--content-width)) / 2)) 40px;
+  padding: 80px max(24px, calc((100vw - min(var(--shell-max), 92vw)) / 2)) 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -929,7 +941,7 @@ button {
   background: var(--color-white);
   border-radius: var(--radius-lg);
   width: 100%;
-  max-width: var(--content-width);
+  max-width: min(var(--shell-max), 92vw);
   min-height: 373px;
   padding: 57px 63px;
   display: flex;
@@ -937,6 +949,14 @@ button {
   align-items: center;
   justify-content: center;
   gap: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.cta-card .btn--cta {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-card__title {
@@ -961,7 +981,7 @@ button {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 80px max(60px, calc((100vw - var(--content-width)) / 2)) 40px;
+  padding: 80px max(24px, calc((100vw - min(var(--shell-max), 92vw)) / 2)) 48px;
   box-sizing: border-box;
 }
 
@@ -976,7 +996,9 @@ button {
   gap: 20px;
   align-items: start;
   width: 100%;
-  max-width: var(--content-width);
+  max-width: min(var(--shell-max), 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .faq-item {
@@ -1254,9 +1276,9 @@ button {
 
 @media (min-width: 1440px) {
   :root {
-    --max-width: var(--layout-max);
-    --content-width: var(--content-max);
-    --page-gutter: max(64px, calc((100vw - var(--layout-max)) / 2));
+    --max-width: var(--shell-max);
+    --content-width: var(--shell-max);
+    --page-gutter: max(24px, calc((100vw - min(var(--shell-max), 92vw)) / 2));
     --section-gap: 88px;
   }
 
@@ -1264,21 +1286,33 @@ button {
     font-size: clamp(16px, 0.95vw, 18px);
   }
 
-  .page--padded,
+  .page--padded {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .page--padded > .page__inner:first-of-type {
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page__inner,
+  .section {
+    max-width: var(--shell-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .cta-band {
     padding-left: var(--page-gutter);
     padding-right: var(--page-gutter);
   }
 
-  .page__inner,
-  .section {
-    max-width: var(--layout-max);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .site-header {
-    max-width: var(--content-max);
+    width: 100%;
+    max-width: var(--shell-max);
     padding: 32px 0;
     gap: 16px;
   }
@@ -1339,7 +1373,10 @@ button {
   }
 
   .hero-block {
-    max-width: var(--content-max);
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-left: auto;
+    margin-right: auto;
     min-height: min(
       820px,
       calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 48px)
@@ -1347,22 +1384,70 @@ button {
   }
 
   .hero-block__content {
-    max-width: 1180px;
+    width: 100%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding: 56px 64px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 28px;
   }
 
-  .hero-block__tagline {
-    max-width: 38ch;
+  .hero-block__title {
+    width: 100%;
+    text-align: center;
   }
 
-  .hero-block__feed {
-    max-width: 400px;
+  .hero-block__title-line--indent {
+    padding-left: 0;
   }
 
   .hero-block__sticker {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: 4px auto 8px;
     max-width: 200px;
     max-height: 200px;
+  }
+
+  .hero-block__row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    gap: 24px;
+  }
+
+  .hero-block__tagline {
+    max-width: 42ch;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hero-block__tagline.type-freight-body {
+    max-width: 42ch;
+  }
+
+  .hero-block__feed {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+
+  .scroll-btn {
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  .scroll-btn:hover {
+    transform: translate(-50%, calc(50% + 2px));
   }
 
   .techniques {
@@ -1379,7 +1464,8 @@ button {
 
   .techniques__grid,
   .techniques__grid--home {
-    max-width: var(--techniques-max);
+    width: 100%;
+    max-width: var(--shell-max);
     margin-left: auto;
     margin-right: auto;
   }
@@ -1414,8 +1500,13 @@ button {
     margin-right: auto;
   }
 
+  .faq {
+    align-items: center;
+  }
+
   .faq__grid {
-    max-width: var(--faq-max);
+    width: 100%;
+    max-width: var(--shell-max);
     margin-left: auto;
     margin-right: auto;
     gap: 24px;
@@ -1447,19 +1538,44 @@ button {
   }
 
   .cta-card {
-    max-width: var(--content-max);
+    width: 100%;
+    max-width: var(--shell-max);
     margin-left: auto;
     margin-right: auto;
     padding: 64px 72px;
+    min-height: 400px;
+    gap: 48px;
   }
 
   .cta-card__title {
-    max-width: 22ch;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-footer {
+    min-height: 380px;
+    padding-top: 72px;
+    padding-bottom: 56px;
   }
 
   .site-footer__top,
   .site-footer__logo {
-    max-width: var(--content-max);
+    width: 100%;
+    max-width: var(--shell-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-footer__top {
+    align-items: center;
+  }
+
+  .site-footer__logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
   }
 
   .quiz-screen {
@@ -1543,10 +1659,7 @@ button {
 /* Full HD — 1920px+ */
 @media (min-width: 1920px) {
   :root {
-    --layout-max: 1520px;
-    --content-max: 1400px;
-    --techniques-max: 1600px;
-    --faq-max: 1320px;
+    --shell-max: 1400px;
     --quiz-max: 980px;
     --sticker-scale: 0.76;
     --hero-bottom-gap: 72px;
@@ -1573,19 +1686,9 @@ button {
 /* 2K — 2560px+ */
 @media (min-width: 2560px) {
   :root {
-    --layout-max: 1600px;
-    --content-max: 1480px;
-    --techniques-max: 1600px;
-    --faq-max: 1400px;
-    --quiz-max: 1000px;
-    --page-gutter: max(80px, calc((100vw - var(--layout-max)) / 2));
+    --shell-max: 1400px;
+    --page-gutter: max(80px, calc((100vw - var(--shell-max)) / 2));
     --section-gap: 104px;
-  }
-
-  .faq__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 28px;
-    max-width: var(--faq-max);
   }
 
   .site-header__nav {
@@ -1601,12 +1704,8 @@ button {
 /* 4K — 3840px+ */
 @media (min-width: 3840px) {
   :root {
-    --layout-max: 1600px;
-    --content-max: 1600px;
-    --techniques-max: 1600px;
-    --faq-max: 1400px;
-    --quiz-max: 1000px;
-    --page-gutter: max(96px, calc((100vw - var(--layout-max)) / 2));
+    --shell-max: 1400px;
+    --page-gutter: max(96px, calc((100vw - var(--shell-max)) / 2));
     --sticker-scale: 0.78;
   }
 
