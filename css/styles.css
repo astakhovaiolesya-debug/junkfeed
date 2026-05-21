@@ -2066,26 +2066,109 @@ body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
     transform: none !important;
   }
 
-  .techniques__row--home-first,
-  .techniques__row--home-second {
-    flex-direction: column;
-    min-height: auto;
-    padding: 0;
-    gap: 48px;
-    margin-bottom: 0;
+  /* Homepage cards — stacked, tilted, overlapping (Figma mobile) */
+  .techniques__grid--home {
+    align-items: center;
+    padding: 40px 12px 72px;
+    gap: 0;
+    overflow: visible;
   }
 
-  .techniques__row--home-first .technique-card--home,
-  .techniques__row--home-second .technique-card--home {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto !important;
-    rotate: 0deg !important;
-    translate: none !important;
-    scale: 1 !important;
+  .techniques__row--home-first,
+  .techniques__row--home-second {
+    display: contents;
+  }
+
+  .techniques__grid--home .technique-card--home {
+    position: relative;
+    width: min(100%, 336px);
+    max-width: 336px;
+    min-height: auto;
+    margin-bottom: -52px;
+    padding: 64px 22px 28px;
+    flex-shrink: 0;
+    rotate: var(--card-rotate);
+    transform-origin: center center;
+    overflow: visible;
     opacity: 1 !important;
-    z-index: 1 !important;
+    scale: 1 !important;
+    translate: none !important;
     animation: none !important;
+  }
+
+  .techniques__grid--home .technique-card--home-1 {
+    --card-rotate: 6deg;
+    z-index: 5;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .techniques__grid--home .technique-card--home-2 {
+    --card-rotate: -5deg;
+    z-index: 4;
+    margin-left: 16px;
+    margin-right: auto;
+  }
+
+  .techniques__grid--home .technique-card--home-3 {
+    --card-rotate: 5deg;
+    z-index: 3;
+    margin-left: auto;
+    margin-right: 12px;
+  }
+
+  .techniques__grid--home .technique-card--home-4 {
+    --card-rotate: -4deg;
+    z-index: 2;
+    margin-left: 20px;
+    margin-right: auto;
+  }
+
+  .techniques__grid--home .technique-card--home-5 {
+    --card-rotate: 6deg;
+    z-index: 1;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: 16px;
+  }
+
+  .techniques__grid--home .technique-badge {
+    position: absolute;
+    display: block;
+    width: min(40vw, 132px) !important;
+    height: auto !important;
+    margin: 0 !important;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .techniques__grid--home .technique-badge--red-herring,
+  .techniques__grid--home .technique-badge--cherry,
+  .techniques__grid--home .technique-badge--slippery {
+    top: -32px;
+    right: -4px;
+    left: auto;
+    bottom: auto;
+    translate: none;
+    rotate: 12deg;
+  }
+
+  .techniques__grid--home .technique-badge--emotional {
+    top: -32px;
+    left: -4px;
+    right: auto;
+    bottom: auto;
+    translate: none;
+    rotate: -10deg;
+  }
+
+  .techniques__grid--home .technique-badge--misrep {
+    top: -28px;
+    left: -4px;
+    right: auto;
+    bottom: auto;
+    translate: none;
+    rotate: -8deg;
   }
 
   .techniques__grid--home .technique-card.motion-card-reveal.is-visible .type-frequenz-card,
@@ -2094,28 +2177,12 @@ body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
     translate: none !important;
   }
 
-  .technique-card--home:hover {
-    translate: none !important;
+  .techniques__grid--home .technique-card--home:hover {
     scale: 1.02 !important;
   }
 
   .techniques__grid--home:has(.technique-card--home:hover) .technique-card--home:not(:hover) {
     opacity: 1 !important;
-    scale: 1 !important;
-  }
-
-  .technique-badge {
-    position: static;
-    display: block;
-    width: min(70vw, calc(220px * var(--sticker-scale))) !important;
-    height: auto !important;
-    margin: 0 auto 12px;
-    translate: none !important;
-    rotate: none !important;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
   }
 
   .techniques__row--learn,
@@ -2143,6 +2210,7 @@ body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
   .techniques-band {
     padding: 48px 20px 48px;
     gap: 40px;
+    overflow: visible;
   }
 
   .techniques--learn {

@@ -530,5 +530,21 @@ button:hover,
     transform: none !important;
     box-shadow: none !important;
   }
+
+  .techniques__grid--home .technique-card.motion-card-reveal,
+  .techniques__grid--home .technique-card.motion-card-reveal.is-visible {
+    animation: none !important;
+    translate: none !important;
+    opacity: 1 !important;
+  }
+
+  .techniques__grid--home .technique-card--home:hover {
+    translate: none !important;
+    animation: none !important;
+  }
+
+  .techniques__grid--home:has(.technique-card--home:hover) .technique-card--home:not(:hover) {
+    translate: none !important;
+  }
 }
 
