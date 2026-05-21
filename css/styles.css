@@ -16,6 +16,13 @@
 
   --max-width: 1440px;
   --content-width: 1312px;
+  --layout-max: 1520px;
+  --content-max: 1400px;
+  --techniques-max: 1600px;
+  --faq-max: 1280px;
+  --quiz-max: 960px;
+  --read-measure: 65ch;
+  --section-gap: 80px;
   --radius-lg: 40px;
   --radius-md: 16px;
   --radius-pill: 50px;
@@ -400,7 +407,12 @@ button {
   font-family: var(--font-freight);
   font-weight: 300;
   font-size: 16px;
-  line-height: normal;
+  line-height: 1.5;
+  max-width: var(--read-measure);
+}
+
+.type-freight-body--full {
+  max-width: none;
 }
 
 /* Main hero — full viewport width; blue frame via body + bottom gap */
@@ -503,6 +515,8 @@ button {
   top: 52px;
   width: calc(243px * var(--sticker-scale));
   height: calc(243px * var(--sticker-scale));
+  max-width: 220px;
+  max-height: 220px;
   z-index: 2;
   object-fit: contain;
 }
@@ -807,6 +821,7 @@ button {
 .technique-card .type-freight-body {
   color: var(--color-black);
   line-height: 1.45;
+  max-width: none;
 }
 
 /* Stickers — absolute positions from Figma Dev Mode (1312px row) */
@@ -1233,20 +1248,85 @@ button {
   margin: 0;
 }
 
-/* Large desktops — balanced gutters, centered 1440px frame */
+/* ==========================================================================
+   Large screens — 1440px, 1920px, 2560px, 3840px
+   ========================================================================== */
+
 @media (min-width: 1440px) {
   :root {
-    --page-gutter: max(64px, calc((100vw - var(--max-width)) / 2));
+    --max-width: var(--layout-max);
+    --content-width: var(--content-max);
+    --page-gutter: max(64px, calc((100vw - var(--layout-max)) / 2));
+    --section-gap: 88px;
   }
 
-  .page--padded {
-    padding-left: var(--page-gutter);
-    padding-right: var(--page-gutter);
+  body {
+    font-size: clamp(16px, 0.95vw, 18px);
   }
 
+  .page--padded,
   .cta-band {
     padding-left: var(--page-gutter);
     padding-right: var(--page-gutter);
+  }
+
+  .page__inner,
+  .section {
+    max-width: var(--layout-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-header {
+    max-width: var(--content-max);
+    padding: 32px 0;
+    gap: 16px;
+  }
+
+  .site-header__nav {
+    gap: 40px;
+    padding: 12px 8px;
+  }
+
+  .site-header__logo img {
+    height: 52px;
+    width: 68px;
+  }
+
+  .type-sink-hero {
+    font-size: clamp(140px, 10vw, 200px);
+  }
+
+  .type-sink-title {
+    font-size: clamp(56px, 4.2vw, 72px);
+  }
+
+  .type-sink-quiz-quote {
+    font-size: clamp(32px, 2.4vw, 40px);
+    max-width: 55ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .type-frequenz-card {
+    font-size: clamp(30px, 2vw, 36px);
+  }
+
+  .type-frequenz-quiz-prompt {
+    font-size: clamp(30px, 2vw, 36px);
+    max-width: 28ch;
+  }
+
+  .type-frequenz-results {
+    font-size: clamp(30px, 2vw, 36px);
+    max-width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .type-freight-body {
+    font-size: clamp(16px, 1vw, 18px);
+    line-height: 1.55;
   }
 
   .hero-block-wrap,
@@ -1259,15 +1339,150 @@ button {
   }
 
   .hero-block {
+    max-width: var(--content-max);
     min-height: min(
       820px,
       calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 48px)
     );
   }
 
-  .quiz-screen {
+  .hero-block__content {
+    max-width: 1180px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .hero-block__tagline {
+    max-width: 38ch;
+  }
+
+  .hero-block__feed {
+    max-width: 400px;
+  }
+
+  .hero-block__sticker {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .techniques {
+    padding-top: var(--section-gap);
+    padding-bottom: 56px;
+    gap: var(--section-gap);
+  }
+
+  .techniques__title {
+    max-width: 22ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .techniques__grid,
+  .techniques__grid--home {
+    max-width: var(--techniques-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .techniques__row {
+    max-width: var(--techniques-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .technique-card--w428,
+  .technique-card--w423,
+  .technique-card--w421 {
+    max-width: 428px;
+  }
+
+  .technique-badge {
+    max-width: 240px;
+    max-height: 240px;
+  }
+
+  .faq,
+  .faq--full-bleed {
+    padding-top: var(--section-gap);
+    padding-bottom: 56px;
+    gap: var(--section-gap);
+  }
+
+  .faq__title {
+    max-width: 20ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faq__grid {
+    max-width: var(--faq-max);
+    margin-left: auto;
+    margin-right: auto;
+    gap: 24px;
+  }
+
+  .faq-item__trigger {
+    min-height: 96px;
+    padding: 24px 32px;
+  }
+
+  .faq-item__question {
+    font-size: clamp(22px, 1.4vw, 26px);
+    max-width: 42ch;
+  }
+
+  .faq-item__answer {
+    padding: 32px 36px 36px;
+    font-size: clamp(16px, 1vw, 18px);
+    line-height: 1.6;
+  }
+
+  .faq-item__answer p {
+    max-width: var(--read-measure);
+  }
+
+  .cta-band {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .cta-card {
+    max-width: var(--content-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 72px;
+  }
+
+  .cta-card__title {
+    max-width: 22ch;
+  }
+
+  .site-footer__top,
+  .site-footer__logo {
+    max-width: var(--content-max);
+  }
+
+  .quiz-screen {
+    max-width: var(--quiz-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .quiz-quote-wrap {
+    max-width: 52ch;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+  }
+
+  .quiz-answers {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .quiz-answer-btn {
+    max-width: 100%;
   }
 
   body.page-quiz .page--padded {
@@ -1276,16 +1491,17 @@ button {
   }
 
   body.page-quiz .page__inner:has(.quiz-screen) {
-    max-width: var(--max-width);
+    max-width: var(--layout-max);
     margin-left: auto;
     margin-right: auto;
   }
 
   body.page-quiz .quiz-screen {
     width: 100%;
-    max-width: var(--content-width);
+    max-width: var(--quiz-max);
     min-height: min(720px, calc(100svh - var(--site-header-height) - 64px));
     border-radius: var(--radius-lg);
+    padding: 56px 48px 60px;
   }
 
   body.page-quiz .quiz-screen .hero-block__bg,
@@ -1293,55 +1509,125 @@ button {
     border-radius: var(--radius-lg);
   }
 
+  body.page-quiz .quiz-screen__inner {
+    max-width: 100%;
+  }
+
+  body.page-quiz .quiz-screen--landing .cta-card__title {
+    max-width: 20ch;
+  }
+
+  body.page-quiz .result-title {
+    max-width: 24ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   body.page-quiz .site-footer {
     display: flex;
   }
+
+  .learn-intro {
+    gap: 48px;
+  }
+
+  .learn-intro__title {
+    max-width: 20ch;
+  }
+
+  .learn-intro__body {
+    max-width: var(--read-measure);
+  }
 }
 
-/* Full HD — 1920×1080 and wider */
+/* Full HD — 1920px+ */
 @media (min-width: 1920px) {
   :root {
-    --sticker-scale: 0.78;
+    --layout-max: 1520px;
+    --content-max: 1400px;
+    --techniques-max: 1600px;
+    --faq-max: 1320px;
+    --quiz-max: 980px;
+    --sticker-scale: 0.76;
     --hero-bottom-gap: 72px;
+    --section-gap: 96px;
   }
 
   .hero-block__content {
-    padding: 52px 60px;
+    padding: 52px 64px;
   }
 
-  .hero-block__feed {
-    width: 400px;
+  .techniques__row--home-second {
+    max-width: var(--techniques-max);
   }
 
-  .techniques {
-    padding-top: 88px;
-    gap: 72px;
+  .quiz-screen__body {
+    gap: 44px;
   }
 
-  .faq,
-  .faq--full-bleed {
-    padding-top: 88px;
-    gap: 72px;
-  }
-
-  .cta-card {
-    min-height: 400px;
-    padding: 64px 72px;
-  }
-
-  .quiz-quote-wrap {
-    padding: 0 48px;
-  }
-
-  body.page-quiz .quiz-screen {
-    min-height: min(860px, calc(100svh - var(--site-header-height) - 48px));
+  .quiz-screen__intro {
+    gap: 28px;
   }
 }
 
-/* Large width + ~1080px height — avoid excessive vertical scroll */
+/* 2K — 2560px+ */
+@media (min-width: 2560px) {
+  :root {
+    --layout-max: 1600px;
+    --content-max: 1480px;
+    --techniques-max: 1600px;
+    --faq-max: 1400px;
+    --quiz-max: 1000px;
+    --page-gutter: max(80px, calc((100vw - var(--layout-max)) / 2));
+    --section-gap: 104px;
+  }
+
+  .faq__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    max-width: var(--faq-max);
+  }
+
+  .site-header__nav {
+    gap: 48px;
+  }
+
+  .cta-band {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+}
+
+/* 4K — 3840px+ */
+@media (min-width: 3840px) {
+  :root {
+    --layout-max: 1600px;
+    --content-max: 1600px;
+    --techniques-max: 1600px;
+    --faq-max: 1400px;
+    --quiz-max: 1000px;
+    --page-gutter: max(96px, calc((100vw - var(--layout-max)) / 2));
+    --sticker-scale: 0.78;
+  }
+
+  .type-sink-hero {
+    font-size: 200px;
+  }
+
+  .type-sink-title {
+    font-size: 72px;
+  }
+
+  .type-freight-body {
+    font-size: 18px;
+  }
+}
+
+/* Large width + ~1080px height */
 @media (min-width: 1440px) and (max-height: 1100px) {
   :root {
     --hero-bottom-gap: 56px;
+    --section-gap: 64px;
   }
 
   .hero-block-wrap {
@@ -1357,14 +1643,14 @@ button {
   }
 
   .techniques {
-    padding-top: 64px;
+    padding-top: 56px;
     padding-bottom: 40px;
     gap: 56px;
   }
 
   .faq,
   .faq--full-bleed {
-    padding-top: 64px;
+    padding-top: 56px;
     gap: 56px;
   }
 
@@ -1373,14 +1659,11 @@ button {
     padding-bottom: 48px;
   }
 
-  .quiz-screen {
-    min-height: min(600px, calc(100svh - var(--site-header-height) - 80px));
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
+  .quiz-screen,
   body.page-quiz .quiz-screen {
-    min-height: min(680px, calc(100svh - var(--site-header-height) - 40px));
+    min-height: min(640px, calc(100svh - var(--site-header-height) - 48px));
+    padding-top: 44px;
+    padding-bottom: 44px;
   }
 }
 
