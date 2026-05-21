@@ -1429,33 +1429,53 @@ button {
     margin-right: auto;
   }
 
-  /* Quiz — mobile layout & spacing */
+  /* Quiz — full-screen card on mobile */
+  body.page-quiz .page {
+    min-height: 100dvh;
+    min-height: 100svh;
+    align-items: stretch;
+  }
+
   body.page-quiz .page--padded {
-    padding: 0 12px;
+    padding: 0;
   }
 
   body.page-quiz .page__inner {
     max-width: 100%;
   }
 
+  body.page-quiz .page__inner:has(.quiz-screen) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   body.page-quiz .quiz-screen {
+    flex: 1;
+    width: 100%;
     max-width: none;
-    min-height: auto;
-    padding: 28px 18px 32px;
-    border-radius: var(--hero-radius-mobile);
+    min-height: calc(100dvh - var(--site-header-height) - var(--brand-line-width));
+    min-height: calc(100svh - var(--site-header-height) - var(--brand-line-width));
+    padding: 32px 20px 36px;
+    border-radius: var(--hero-radius-mobile) var(--hero-radius-mobile) 0 0;
+    align-items: center;
+    justify-content: center;
   }
 
   body.page-quiz .quiz-screen--landing,
   body.page-quiz .quiz-screen--results {
-    padding: 32px 16px 36px;
+    padding: 36px 20px 40px;
   }
 
   body.page-quiz .quiz-screen .hero-block__bg,
   body.page-quiz .quiz-screen .hero-block__grid {
-    border-radius: var(--hero-radius-mobile);
+    border-radius: inherit;
   }
 
   body.page-quiz .quiz-screen__inner {
+    flex: 1;
+    justify-content: center;
     gap: 32px;
     max-width: 100%;
   }
@@ -1536,6 +1556,10 @@ button {
     max-width: 100%;
     font-size: clamp(28px, 8vw, 36px);
     line-height: 1.1;
+  }
+
+  body.page-quiz .site-footer {
+    display: none;
   }
 
   .hero-block__sticker {
@@ -1796,17 +1820,14 @@ button {
     font-size: 24px;
   }
 
-  body.page-quiz .page--padded {
-    padding: 0 10px;
-  }
-
   body.page-quiz .quiz-screen {
-    padding: 24px 14px 28px;
+    padding: 28px 16px 32px;
+    border-radius: 22px 22px 0 0;
   }
 
   body.page-quiz .quiz-screen--landing,
   body.page-quiz .quiz-screen--results {
-    padding: 28px 12px 32px;
+    padding: 32px 16px 36px;
   }
 
   body.page-quiz .quiz-screen__inner {
