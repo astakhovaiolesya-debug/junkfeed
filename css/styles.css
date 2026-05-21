@@ -215,10 +215,6 @@ button {
 .site-footer {
   background-color: var(--color-white);
   border-radius: var(--radius-footer) var(--radius-footer) 0 0;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
   min-height: 360px;
   padding: 64px var(--section-gutter) 48px;
   display: flex;
@@ -552,19 +548,50 @@ button {
   flex-shrink: 0;
 }
 
-/* Techniques — full viewport width */
-.techniques {
-  background: var(--color-white);
+/* Techniques + FAQ — full-bleed bands; white content lives in *-card shells */
+.techniques-section,
+.faq-section,
+.site-footer {
   width: 100vw;
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 80px max(64px, calc((100vw - var(--content-width)) / 2)) 40px;
+  box-sizing: border-box;
+}
+
+.techniques-section,
+.faq-section {
+  background: var(--color-blue);
+  padding: 48px var(--section-gutter);
+  display: flex;
+  justify-content: center;
+}
+
+.techniques-section {
+  padding-bottom: 24px;
+}
+
+.faq-section {
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.techniques-card,
+.faq-card {
+  width: 100%;
+  max-width: min(var(--card-max), 100%);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.techniques-card {
+  padding: 56px 40px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 80px;
-  overflow: visible;
+  gap: 56px;
 }
 
 .techniques--learn {
@@ -630,7 +657,7 @@ button {
   align-items: center;
   gap: 16px;
   width: 100%;
-  max-width: var(--content-width);
+  max-width: 100%;
   position: relative;
   min-height: 363px;
   overflow: visible;
@@ -640,7 +667,7 @@ button {
 .techniques__grid--home {
   gap: 0;
   width: 100%;
-  max-width: var(--content-width);
+  max-width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -657,9 +684,9 @@ button {
   min-height: 260px;
   justify-content: center;
   align-items: center;
-  max-width: 1320px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 64px 24px;
+  padding: 0 24px 24px;
 }
 
 .technique-card--home {
@@ -946,30 +973,12 @@ button {
   color: var(--color-black);
 }
 
-/* FAQ — white card on blue band; accordion items keep white fill */
-.faq-section {
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 64px var(--section-gutter) 64px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  background: var(--color-blue);
-}
-
 .faq-card {
-  width: 100%;
-  max-width: min(var(--card-max), 100%);
-  background: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: 72px 56px 56px;
+  padding: 56px 40px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 64px;
-  box-sizing: border-box;
+  gap: 48px;
 }
 
 .faq__title {
@@ -1279,7 +1288,7 @@ button {
   }
 
   .page__inner,
-  .section {
+  .section:not(.techniques-section):not(.faq-section):not(.site-footer) {
     max-width: var(--layout-max);
     margin-left: auto;
     margin-right: auto;
@@ -1338,7 +1347,7 @@ button {
   }
 
   .hero-block-wrap,
-  .techniques,
+  .techniques-section,
   .faq-section,
   .learn-intro,
   .site-footer {
@@ -1375,9 +1384,13 @@ button {
     max-height: 200px;
   }
 
-  .techniques {
+  .techniques-section {
     padding-top: var(--section-gap);
-    padding-bottom: 56px;
+    padding-bottom: 32px;
+  }
+
+  .techniques-card {
+    padding: 72px 56px 56px;
     gap: var(--section-gap);
   }
 
@@ -1388,14 +1401,9 @@ button {
   }
 
   .techniques__grid,
-  .techniques__grid--home {
-    max-width: var(--techniques-max);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  .techniques__grid--home,
   .techniques__row {
-    max-width: var(--techniques-max);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1412,12 +1420,12 @@ button {
   }
 
   .faq-section {
-    padding-top: var(--section-gap);
+    padding-top: 32px;
     padding-bottom: var(--section-gap);
   }
 
   .faq-card {
-    padding: 80px 64px 64px;
+    padding: 72px 56px 56px;
     gap: var(--section-gap);
   }
 
@@ -1575,8 +1583,12 @@ button {
     padding: 60px 72px;
   }
 
+  .techniques-card {
+    padding: 80px 64px 64px;
+  }
+
   .faq-card {
-    padding: 88px 72px 72px;
+    padding: 80px 64px 64px;
   }
 
   .techniques__row--home-second {
@@ -1656,14 +1668,17 @@ button {
     );
   }
 
-  .techniques {
+  .techniques-section {
     padding-top: 56px;
-    padding-bottom: 40px;
+    padding-bottom: 24px;
+  }
+
+  .techniques-card {
     gap: 56px;
   }
 
   .faq-section {
-    padding-top: 56px;
+    padding-top: 24px;
     padding-bottom: 56px;
   }
 
@@ -2145,8 +2160,12 @@ button {
     order: -1;
   }
 
-  .techniques {
-    padding: 48px 20px 32px;
+  .techniques-section {
+    padding: 40px 20px 16px;
+  }
+
+  .techniques-card {
+    padding: 40px 20px 32px;
     gap: 40px;
   }
 
@@ -2156,11 +2175,11 @@ button {
   }
 
   .faq-section {
-    padding: 40px 20px 40px;
+    padding: 16px 20px 40px;
   }
 
   .faq-card {
-    padding: 48px 24px 40px;
+    padding: 40px 20px 32px;
     gap: 40px;
   }
 
