@@ -4,3 +4,4 @@
 *.mov
 .env
 .env.*
+.vercel
