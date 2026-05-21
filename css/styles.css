@@ -1505,12 +1505,16 @@ button {
   }
 
   body.page-quiz .quiz-answers {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 12px;
     max-width: 100%;
   }
 
+  /* Flatten columns so all four buttons share one even gap */
   body.page-quiz .quiz-answers__col {
-    gap: 12px;
+    display: contents;
+    gap: 0;
   }
 
   body.page-quiz .quiz-answer-btn {
@@ -1717,17 +1721,8 @@ button {
     line-height: normal;
   }
 
-  .quiz-answers {
-    flex-direction: column;
-    max-width: 100%;
-  }
-
   .quiz-quote-wrap {
     padding: 0;
-  }
-
-  body.page-quiz .quiz-answers__col {
-    width: 100%;
   }
 
   .site-footer__top {
@@ -1837,6 +1832,10 @@ button {
   body.page-quiz .type-sink-quiz-quote {
     font-size: clamp(18px, 4.8vw, 22px);
     line-height: 1.2;
+  }
+
+  body.page-quiz .quiz-answers {
+    gap: 10px;
   }
 
   body.page-quiz .quiz-answer-btn {
