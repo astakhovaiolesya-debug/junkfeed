@@ -17,7 +17,8 @@
   --max-width: 1440px;
   --content-width: 1312px;
   --card-max: 1312px;
-  --section-gutter: max(24px, calc((100vw - min(var(--card-max), 92vw)) / 2));
+  --faq-grid-max: 1120px;
+  --section-gutter: max(24px, calc((100vw - min(var(--card-max), 85vw)) / 2));
   --layout-max: 1520px;
   --content-max: 1400px;
   --techniques-max: 1600px;
@@ -548,9 +549,9 @@ button {
   flex-shrink: 0;
 }
 
-/* Techniques + FAQ — full-bleed bands; white content lives in *-card shells */
-.techniques-section,
-.faq-section,
+/* Full-bleed bands — Figma: hero/CTA = white card on blue; techniques/FAQ = full white */
+.techniques-band,
+.faq-band,
 .site-footer {
   width: 100vw;
   max-width: none;
@@ -559,39 +560,27 @@ button {
   box-sizing: border-box;
 }
 
-.techniques-section,
-.faq-section {
-  background: var(--color-blue);
-  padding: 48px var(--section-gutter);
-  display: flex;
-  justify-content: center;
-}
-
-.techniques-section {
-  padding-bottom: 24px;
-}
-
-.faq-section {
-  padding-top: 24px;
-  padding-bottom: 48px;
-}
-
-.techniques-card,
-.faq-card {
-  width: 100%;
-  max-width: min(var(--card-max), 100%);
+.techniques-band,
+.faq-band {
   background: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-sizing: border-box;
-  overflow: visible;
-}
-
-.techniques-card {
-  padding: 56px 40px 48px;
+  padding-left: var(--section-gutter);
+  padding-right: var(--section-gutter);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
+  overflow: visible;
+}
+
+.techniques-band {
+  padding-top: 80px;
+  padding-bottom: 0;
+  gap: 80px;
+}
+
+.faq-band {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  gap: 80px;
 }
 
 .techniques--learn {
@@ -667,7 +656,7 @@ button {
 .techniques__grid--home {
   gap: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: min(var(--card-max), 100%);
   display: flex;
   flex-direction: column;
 }
@@ -973,18 +962,11 @@ button {
   color: var(--color-black);
 }
 
-.faq-card {
-  padding: 56px 40px 48px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 48px;
-}
-
 .faq__title {
   text-align: center;
   color: var(--color-black);
   width: 100%;
+  max-width: var(--faq-grid-max);
 }
 
 .faq__grid {
@@ -993,6 +975,7 @@ button {
   gap: 20px;
   align-items: start;
   width: 100%;
+  max-width: var(--faq-grid-max);
 }
 
 .faq-item {
@@ -1272,7 +1255,8 @@ button {
   :root {
     --max-width: var(--layout-max);
     --content-width: var(--content-max);
-    --card-max: var(--content-max);
+    --card-max: min(1400px, 85vw);
+    --faq-grid-max: min(1200px, 72vw);
     --page-gutter: var(--section-gutter);
     --section-gap: 88px;
   }
@@ -1287,15 +1271,20 @@ button {
     padding-right: var(--page-gutter);
   }
 
-  .page__inner,
-  .section:not(.techniques-section):not(.faq-section):not(.site-footer) {
+  .page__inner {
+    max-width: var(--card-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section:not(.techniques-band):not(.faq-band):not(.site-footer) {
     max-width: var(--layout-max);
     margin-left: auto;
     margin-right: auto;
   }
 
   .site-header {
-    max-width: var(--card-max);
+    max-width: 100%;
     padding: 32px 0;
     gap: 16px;
   }
@@ -1347,8 +1336,8 @@ button {
   }
 
   .hero-block-wrap,
-  .techniques-section,
-  .faq-section,
+  .techniques-band,
+  .faq-band,
   .learn-intro,
   .site-footer {
     padding-left: var(--section-gutter);
@@ -1366,9 +1355,14 @@ button {
   .hero-block__content {
     max-width: 1180px;
     min-height: 520px;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     padding: 56px 64px;
+    align-self: flex-start;
+  }
+
+  .hero-block {
+    justify-content: flex-start;
   }
 
   .hero-block__tagline {
@@ -1384,13 +1378,15 @@ button {
     max-height: 200px;
   }
 
-  .techniques-section {
+  .techniques-band {
     padding-top: var(--section-gap);
-    padding-bottom: 32px;
+    padding-bottom: 0;
+    gap: var(--section-gap);
   }
 
-  .techniques-card {
-    padding: 72px 56px 56px;
+  .faq-band {
+    padding-top: var(--section-gap);
+    padding-bottom: var(--section-gap);
     gap: var(--section-gap);
   }
 
@@ -1400,10 +1396,12 @@ button {
     margin-right: auto;
   }
 
-  .techniques__grid,
-  .techniques__grid--home,
+  .techniques__grid--home {
+    max-width: min(var(--card-max), 100%);
+  }
+
   .techniques__row {
-    max-width: 100%;
+    max-width: min(var(--card-max), 100%);
     margin-left: auto;
     margin-right: auto;
   }
@@ -1419,20 +1417,16 @@ button {
     max-height: 240px;
   }
 
-  .faq-section {
-    padding-top: 32px;
-    padding-bottom: var(--section-gap);
-  }
-
-  .faq-card {
-    padding: 72px 56px 56px;
-    gap: var(--section-gap);
-  }
-
   .faq__title {
     max-width: 20ch;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .faq__title,
+  .faq__grid {
+    width: 100%;
+    max-width: var(--faq-grid-max);
   }
 
   .faq__grid {
@@ -1466,6 +1460,7 @@ button {
 
   .cta-card {
     max-width: var(--card-max);
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 64px 72px;
@@ -1563,8 +1558,9 @@ button {
   :root {
     --layout-max: 1520px;
     --content-max: 1400px;
-    --card-max: 1400px;
-    --techniques-max: 1600px;
+    --card-max: min(1400px, 85vw);
+    --faq-grid-max: min(1200px, 72vw);
+    --techniques-max: 1400px;
     --quiz-max: 980px;
     --sticker-scale: 0.76;
     --hero-bottom-gap: 72px;
@@ -1583,16 +1579,8 @@ button {
     padding: 60px 72px;
   }
 
-  .techniques-card {
-    padding: 80px 64px 64px;
-  }
-
-  .faq-card {
-    padding: 80px 64px 64px;
-  }
-
   .techniques__row--home-second {
-    max-width: var(--techniques-max);
+    max-width: min(var(--card-max), 100%);
   }
 
   .quiz-screen__body {
@@ -1609,8 +1597,9 @@ button {
   :root {
     --layout-max: 1600px;
     --content-max: 1480px;
-    --card-max: 1480px;
-    --techniques-max: 1600px;
+    --card-max: min(1480px, 85vw);
+    --faq-grid-max: min(1280px, 72vw);
+    --techniques-max: 1480px;
     --quiz-max: 1000px;
     --section-gap: 104px;
   }
@@ -1668,21 +1657,14 @@ button {
     );
   }
 
-  .techniques-section {
+  .techniques-band {
     padding-top: 56px;
-    padding-bottom: 24px;
-  }
-
-  .techniques-card {
     gap: 56px;
   }
 
-  .faq-section {
-    padding-top: 24px;
+  .faq-band {
+    padding-top: 56px;
     padding-bottom: 56px;
-  }
-
-  .faq-card {
     gap: 56px;
   }
 
@@ -2160,12 +2142,8 @@ button {
     order: -1;
   }
 
-  .techniques-section {
-    padding: 40px 20px 16px;
-  }
-
-  .techniques-card {
-    padding: 40px 20px 32px;
+  .techniques-band {
+    padding: 48px 20px 0;
     gap: 40px;
   }
 
@@ -2174,13 +2152,14 @@ button {
     padding-bottom: 32px;
   }
 
-  .faq-section {
-    padding: 16px 20px 40px;
+  .faq-band {
+    padding: 48px 20px 48px;
+    gap: 40px;
   }
 
-  .faq-card {
-    padding: 40px 20px 32px;
-    gap: 40px;
+  .faq__title,
+  .faq__grid {
+    max-width: 100%;
   }
 
   .site-footer {
