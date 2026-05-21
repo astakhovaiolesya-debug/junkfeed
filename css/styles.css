@@ -419,8 +419,8 @@ button {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding-left: var(--section-gutter);
-  padding-right: var(--section-gutter);
+  padding-left: max(64px, calc((100vw - var(--content-width)) / 2));
+  padding-right: max(64px, calc((100vw - var(--content-width)) / 2));
   padding-bottom: var(--hero-bottom-gap);
   box-sizing: border-box;
   min-height: calc(100svh - var(--site-header-height));
@@ -432,10 +432,10 @@ button {
 
 .hero-block {
   width: 100%;
-  max-width: min(var(--card-max), 100%);
+  max-width: var(--content-width);
   flex: 1;
   min-height: calc(
-    100svh - var(--site-header-height) - var(--hero-bottom-gap) - 48px
+    100svh - var(--site-header-height) - var(--hero-bottom-gap) - 60px
   );
   border-radius: var(--radius-lg);
   position: relative;
@@ -1350,24 +1350,17 @@ body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
   }
 
   .hero-block {
-    max-width: var(--card-max);
+    max-width: var(--content-max);
     min-height: min(
-      920px,
-      calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 40px)
+      820px,
+      calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 48px)
     );
   }
 
   .hero-block__content {
     max-width: 1180px;
-    min-height: 520px;
-    margin-left: 0;
+    margin-left: auto;
     margin-right: auto;
-    padding: 56px 64px;
-    align-self: flex-start;
-  }
-
-  .hero-block {
-    justify-content: flex-start;
   }
 
   .hero-block__tagline {
@@ -1576,16 +1569,8 @@ body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
     --section-gap: 96px;
   }
 
-  .hero-block {
-    min-height: min(
-      980px,
-      calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 32px)
-    );
-  }
-
   .hero-block__content {
-    min-height: 560px;
-    padding: 60px 72px;
+    padding: 52px 64px;
   }
 
   .techniques__row--home-second {
@@ -1661,7 +1646,7 @@ body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
 
   .hero-block {
     min-height: min(
-      780px,
+      700px,
       calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 32px)
     );
   }
