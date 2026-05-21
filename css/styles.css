@@ -573,7 +573,7 @@ button {
 
 .techniques-band {
   padding-top: 80px;
-  padding-bottom: 0;
+  padding-bottom: 80px;
   gap: 80px;
 }
 
@@ -1097,6 +1097,11 @@ button {
   padding: 57px 55px 57px 63px;
 }
 
+/* Quiz start page — gap between white card and footer */
+body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
+  margin-bottom: 72px;
+}
+
 .quiz-screen__inner {
   position: relative;
   z-index: 1;
@@ -1380,7 +1385,7 @@ button {
 
   .techniques-band {
     padding-top: var(--section-gap);
-    padding-bottom: 0;
+    padding-bottom: var(--section-gap);
     gap: var(--section-gap);
   }
 
@@ -1528,6 +1533,10 @@ button {
 
   body.page-quiz .quiz-screen--landing .cta-card__title {
     max-width: 20ch;
+  }
+
+  body.page-quiz:has(.quiz-screen--landing) .page__inner:has(.quiz-screen) {
+    margin-bottom: 96px;
   }
 
   body.page-quiz .result-title {
@@ -1889,6 +1898,10 @@ button {
     padding: 0 16px 16px;
   }
 
+  body.page-quiz:has(.quiz-screen--landing) .page--padded {
+    padding-bottom: 48px;
+  }
+
   body.page-quiz .page__inner {
     max-width: 100%;
   }
@@ -2143,7 +2156,7 @@ button {
   }
 
   .techniques-band {
-    padding: 48px 20px 0;
+    padding: 48px 20px 48px;
     gap: 40px;
   }
 
