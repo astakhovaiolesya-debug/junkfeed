@@ -41,25 +41,27 @@
       </div>
 
       <div class="page__inner">
-        <section class="quiz-screen" aria-label="Quiz results">
+        <section class="quiz-screen quiz-screen--results" aria-label="Quiz results">
           <div class="hero-block__bg" aria-hidden="true"></div>
           <img class="hero-block__grid" src="images/hero-grid.png" alt="" aria-hidden="true" />
           <div class="quiz-screen__inner">
-            <div class="results-copy">
-              <h1 class="results-title type-sink-title">
-                You know how manipulation works Keep checking what you consume
-              </h1>
-              <p id="results-score" class="type-frequenz-results">You answered 0 out of 5 correctly.</p>
+            <div class="quiz-screen__body results-copy">
+              <div class="quiz-screen__intro">
+                <h1 class="result-title type-sink-title">Let's learn together!</h1>
+                <p id="results-score" class="type-frequenz-results">
+                  You answered 0 out of 5 correctly.
+                </p>
+              </div>
+              <a href="index.html" class="btn btn--cta">Back to Home</a>
             </div>
-            <a href="index.html" class="btn btn--cta">Back to Home</a>
           </div>
         </section>
       </div>
     </div>
-    <script src="js/nav.js" defer></script>
-    <script src="js/motion.js" defer></script>
     <script src="js/quiz-data.js"></script>
     <script src="js/quiz-storage.js"></script>
-    <script src="js/results.js"></script>
+    <script src="js/nav.js" defer></script>
+    <script src="js/motion.js" defer></script>
+    <script src="js/results.js" defer></script>
   </body>
 </html>

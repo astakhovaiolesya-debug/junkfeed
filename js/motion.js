@@ -455,23 +455,30 @@
     var el = document.getElementById("results-score");
     if (!el || prefersReduced) return;
 
-    var text = el.textContent;
-    var match = text.match(/(\d+)/);
-    if (!match) return;
+    var target = parseInt(el.getAttribute("data-score-target"), 10);
+    var total = parseInt(el.getAttribute("data-score-total"), 10);
+    if (isNaN(target)) {
+      var match = el.textContent.match(/(\d+)/);
+      target = match ? parseInt(match[1], 10) : 0;
+    }
+    if (isNaN(total)) total = window.JunkFeedQuiz ? JunkFeedQuiz.total : 5;
 
-    var target = parseInt(match[1], 10);
     var start = 0;
     var duration = 1200;
     var startTime = null;
 
-    el.textContent = text.replace(String(target), "0");
+    function formatScore(val) {
+      return "You answered " + val + " out\u00a0of " + total + " correctly.";
+    }
+
+    el.textContent = formatScore(0);
 
     function step(ts) {
       if (!startTime) startTime = ts;
       var p = Math.min((ts - startTime) / duration, 1);
       var eased = 1 - Math.pow(1 - p, 3);
       var val = Math.round(start + (target - start) * eased);
-      el.textContent = text.replace(/\d+/, String(val));
+      el.textContent = formatScore(val);
       if (p < 1) requestAnimationFrame(step);
       else burstConfetti(window.innerWidth / 2, window.innerHeight / 3);
     }
