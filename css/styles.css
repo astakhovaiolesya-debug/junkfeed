@@ -28,6 +28,7 @@
   /* Figma technique-card stroke — 8px solid #eb4424 (main-page decorative line) */
   --brand-line-width: 8px;
   --brand-line-color: var(--color-orange);
+  --page-gutter: 64px;
 }
 
 *,
@@ -1230,6 +1231,157 @@ button {
 .quiz-screen--results .type-frequenz-results {
   max-width: 722px;
   margin: 0;
+}
+
+/* Large desktops — balanced gutters, centered 1440px frame */
+@media (min-width: 1440px) {
+  :root {
+    --page-gutter: max(64px, calc((100vw - var(--max-width)) / 2));
+  }
+
+  .page--padded {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .cta-band {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .hero-block-wrap,
+  .techniques,
+  .faq--full-bleed,
+  .learn-intro,
+  .site-footer {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .hero-block {
+    min-height: min(
+      820px,
+      calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 48px)
+    );
+  }
+
+  .quiz-screen {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body.page-quiz .page--padded {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  body.page-quiz .page__inner:has(.quiz-screen) {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body.page-quiz .quiz-screen {
+    width: 100%;
+    max-width: var(--content-width);
+    min-height: min(720px, calc(100svh - var(--site-header-height) - 64px));
+    border-radius: var(--radius-lg);
+  }
+
+  body.page-quiz .quiz-screen .hero-block__bg,
+  body.page-quiz .quiz-screen .hero-block__grid {
+    border-radius: var(--radius-lg);
+  }
+
+  body.page-quiz .site-footer {
+    display: flex;
+  }
+}
+
+/* Full HD — 1920×1080 and wider */
+@media (min-width: 1920px) {
+  :root {
+    --sticker-scale: 0.78;
+    --hero-bottom-gap: 72px;
+  }
+
+  .hero-block__content {
+    padding: 52px 60px;
+  }
+
+  .hero-block__feed {
+    width: 400px;
+  }
+
+  .techniques {
+    padding-top: 88px;
+    gap: 72px;
+  }
+
+  .faq,
+  .faq--full-bleed {
+    padding-top: 88px;
+    gap: 72px;
+  }
+
+  .cta-card {
+    min-height: 400px;
+    padding: 64px 72px;
+  }
+
+  .quiz-quote-wrap {
+    padding: 0 48px;
+  }
+
+  body.page-quiz .quiz-screen {
+    min-height: min(860px, calc(100svh - var(--site-header-height) - 48px));
+  }
+}
+
+/* Large width + ~1080px height — avoid excessive vertical scroll */
+@media (min-width: 1440px) and (max-height: 1100px) {
+  :root {
+    --hero-bottom-gap: 56px;
+  }
+
+  .hero-block-wrap {
+    min-height: 0;
+    padding-bottom: var(--hero-bottom-gap);
+  }
+
+  .hero-block {
+    min-height: min(
+      700px,
+      calc(100svh - var(--site-header-height) - var(--hero-bottom-gap) - 32px)
+    );
+  }
+
+  .techniques {
+    padding-top: 64px;
+    padding-bottom: 40px;
+    gap: 56px;
+  }
+
+  .faq,
+  .faq--full-bleed {
+    padding-top: 64px;
+    gap: 56px;
+  }
+
+  .cta-band {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .quiz-screen {
+    min-height: min(600px, calc(100svh - var(--site-header-height) - 80px));
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  body.page-quiz .quiz-screen {
+    min-height: min(680px, calc(100svh - var(--site-header-height) - 40px));
+  }
 }
 
 /* Responsive */
